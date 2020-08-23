@@ -1,0 +1,95 @@
+.main{
+  margin: 0;
+  background-color:rgb(64, 75, 87);
+  height: 100vh;
+}
+
+.block-1{
+
+  width: 100%;
+  display:flex;
+}
+.img-block{
+  width:50%;
+  display: inline-block;
+  height:90%;
+}
+.block-2{
+  background-color:white;
+  margin-top: 30px;
+  margin-left: 0%;
+ border-radius: 3%;
+  margin-right: 45px;
+  display:inline-block;
+  width:35%;
+  height:500;
+}
+.heading{
+ 
+  background-color:rgb(103, 153, 194);
+  
+}
+#main-text{
+  padding:5px;
+  color: white;
+  text-align: center;
+}
+
+.bal{
+
+  color:rgb(64, 75, 87);
+
+  
+}
+#text-current-balance{
+
+
+ text-align: center;
+}
+
+.ac-summary-main{
+  width: 100%;
+  display:flex;
+  color: rgb(126, 197, 255);           
+  font-style: italic;
+  font-size: 100%;
+}
+.ac-income{
+  width:40%;
+  display:inline-block;
+  text-align: center;
+  background-color:rgb(64, 75, 87) ;
+  margin-left: 33px;
+  border-radius: 5%;
+}
+
+.ac-expense{
+  width: 40%;
+  display:inline-block;
+  text-align: center;
+  background-color:rgb(126, 197, 255); 
+  margin-left:15px;
+  border-radius: 5%;
+  color:rgb(64, 75, 87);
+
+}
+.transacation-main{
+
+  margin-top: 30px;
+  width: 70;
+  margin-left: 90px;
+  align-items: center;
+  justify-content: center;
+}
+#input-1{
+
+  justify-content: center;
+  border:0;
+  font-size: 2ch;
+  border-bottom:2px solid rgb(126, 197, 255) ;
+ 
+  text-decoration: none;
+  text-align: center;
+  outline: none;
+  
+}
