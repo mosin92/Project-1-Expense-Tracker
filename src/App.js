@@ -1,6 +1,7 @@
 import React from 'react';
 import pic2 from './pic2.png';
 import './App.css';
+
 import { CurrentBalance } from './Component/CurrentBalance';
 import { AccountSummary } from './Component/AccountSummary';
 import { TransacationAmount } from './Component/TransacationAmount';
