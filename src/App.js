@@ -1,31 +1,17 @@
-import React from 'react';
-import pic2 from './pic2.png';
-import './App.css';
+    import React from 'react';
 
-import { CurrentBalance } from './Component/CurrentBalance';
-import { AccountSummary } from './Component/AccountSummary';
-import { TransacationAmount } from './Component/TransacationAmount';
-function App() {
-  return (
-    <div className="App">
-      <div className="main">
-          <div className="block-1">
-            <div className="img-block">
-               <img src={pic2} alt="osin-logo" height="80%" width="80%" /> 
-            </div>
-            <div className="block-2">
-              <div className="heading">
-                <h3 id="main-text">Expense Tracker</h3>
-              </div>
-            <CurrentBalance />
-            <AccountSummary />
-            <TransacationAmount/>
-          </div>
-          </div>
-        
-        </div>
-    </div>
-  );
-}
+    import './App.css';
 
-export default App;
+
+    import {GlobalContextProvider} from './Context/GlobalContext';
+
+    import { MainDesign } from './MainDesign';
+      function App() {
+        return (
+         <GlobalContextProvider>
+          <MainDesign/>
+        </GlobalContextProvider>
+          );
+      }
+
+    export default App;
