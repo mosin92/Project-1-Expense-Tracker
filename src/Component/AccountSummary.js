@@ -1,20 +1,29 @@
-import React from 'react'
+import React, { useContext } from 'react'
+import {GlobalContext} from '../Context/GlobalContext'
 import '../App.css';
 export const AccountSummary = () => {
+    const { IncomeTransacation } = useContext(GlobalContext);
+    const amounts = IncomeTransacation.map(transaction => transaction.amount);
+
+  const income = amounts.filter(item => item > 0).reduce((acc, item) => (acc += item), 0).toFixed(2);
+
+  const expense = (
+    amounts.filter(item => item < 0).reduce((acc, item) => (acc += item), 0) *-1).toFixed(2);
     return (
         <div className="ac-summary-main">
             
         <div className="ac-income">
-            <h4> Income
+            <h4> Income  <span id="ac-text">+</span>
               
               <br />
-              $500.00
+              ${income}
              </h4>
         </div>
         <div className="ac-expense">
             <h4>
-             Expense<br />
-             $100.00
+             Expense   <span id="ac-minus">-</span>
+             <br />
+             ${expense}
             </h4>
             </div>
         

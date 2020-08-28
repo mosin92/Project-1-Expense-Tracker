@@ -3,8 +3,7 @@ import React, { createContext,useReducer } from 'react'
 const initalState = 
     { 
     transacations: [
-             { id: 1, description: "Book", amount: 500, },
-            { id: 2, description: "Bills", amount: -100 }
+             
         ]
 }
 
@@ -15,19 +14,44 @@ export const GlobalContext = createContext(initalState);
 
 const reducer = (state, action) => {
     switch (action.type) {
-         
+        case 'DeleteTransaction':
+            return {
+                ...state, transacations:
+                    state.transacations.filter(transaction => transaction.id !== action.payload) 
+            }
+        case 'AddTransaction':
+            return {
+                ...state,transacations:[...state.transacations,action.payload]
+            }
+      
         default:
             return state;
     }
 }
 
 export const GlobalContextProvider = ({children}) => {
- const [newstate, dispatch] = useReducer(reducer, initalState);
+    const [newstate, dispatch] = useReducer(reducer, initalState);
+    
+    const deletetransaction = (id) => {
+        dispatch({
+            type: 'DeleteTransaction',
+            payload:id
+        })
+    }
+
+    const addtransaction = (transacation) => {
+        dispatch({
+            type: 'AddTransaction',
+            payload:transacation
+        })
+    }
  
     return (
         <GlobalContext.Provider value={
             {
-                IncomeTransacation:newstate.transacations
+                IncomeTransacation: newstate.transacations,
+                addtransaction,
+                deletetransaction
             }
         }>
             {children}

@@ -1,22 +1,35 @@
-    import React ,{useState} from 'react'
+import React, { useState, useContext } from 'react'
+    import {GlobalContext} from '../Context/GlobalContext'
     import '../App.css';
 
 
 export const TransacationAmount = () => {
-  const [text, settext] = useState('');
-  const [amount, setamount] = useState(0);
+  const [description, settext] = useState('');
+  const [amount, setamount] = useState();
+  const { addtransaction } = useContext(GlobalContext);
+
+  const Onsubmit = () => {
+    
+    const newTransaction = {
+      id: Math.floor(Math.random() * 100000000),
+      description,
+      amount:+amount
+    }
+
+    addtransaction(newTransaction);
+  }
   
           return (
               <div className="master">
                 <div className="transacation-main">
                     <div className="transacation-input"> 
-                  <input id="input-1" type="text" value={text}
+                  <input id="input-1" type="text" value={description}
                     placeholder="Enter Desciption" onChange={(e)=>settext(e.target.value)} >
                     
                           </input>
                     </div>
                     <div className="transaction-icon">
-                    <button className="transacation-button">+</button>
+                    {/* <button className="transacation-button">+</button> */}
                     </div>
                   
                     
@@ -27,7 +40,7 @@ export const TransacationAmount = () => {
                             value={amount} onChange={(e)=>setamount(e.target.value)}></input>
                       </div>
                       <div className="btn-2">
-                    <button className="btn-action">+</button>
+                    <button className="btn-action" onClick={Onsubmit}>+</button>
                       </div>
               </div>
                 
